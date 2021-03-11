@@ -1,0 +1,38 @@
+*{margin: 0; padding: 0; background-color: #ededed;}
+a{text-decoration: none;}
+
+h1{
+	text-align: center; font-size: 60px; margin-top: 30px; font-weight: bold;
+}
+h1 a{
+	color: green; 
+}
+.container, .container02{ width: 400px; height: 100%; margin: 0 auto; }
+input[type=text],
+input[type=password]{
+	width: 100%; height: 30px; line-height: 30px; background-color: #fff; border: 1px solid #888; margin-bottom: 15px;
+}
+#userPw, #pwChk{
+	margin-bottom: 0;
+}
+
+.birthBox{
+	display: flex;
+}
+#birth01, #birth02{
+	width: 32.33%; margin-right: 2%;
+}
+#birth02{
+	background-color: #fff; height: 33px;
+}
+#birth03{
+	width: 32.33%;
+}
+
+#userGender{
+	width: 100%; height: 30px; line-height: 30px; background-color: #fff; border: 1px solid #888;
+}
+#alert01{color: red; display: none; font-size: 11px;}
+#alert02{color: green; display: none; font-size: 11px;}
+#alert03{color: red; display: none; font-size: 11px;}
+#alert04{color: green; display: none; font-size: 11px;}
