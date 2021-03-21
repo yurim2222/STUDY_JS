@@ -30,7 +30,7 @@ input[type=password]{
 }
 
 #userGender{
-	width: 100%; height: 30px; line-height: 30px; background-color: #fff; border: 1px solid #888;
+	width: 100%; height: 30px; line-height: 30px; background-color: #fff; border: 1px solid #888; margin-bottom: 15px;
 }
 #alert01{color: red; display: none; font-size: 11px;}
 #alert02{color: green; display: none; font-size: 11px;}
