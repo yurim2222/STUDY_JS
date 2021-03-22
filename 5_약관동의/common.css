@@ -1,0 +1,20 @@
+*{ margin: 0; padding: 0;}
+a{text-decoration: none; color: #222;}
+body{ background-color: #f8f8f8;}
+.container{ width: 500px; height: 100%; margin: 0 auto;}
+
+h1{  text-align: center; margin: 40px auto; }
+h1 a{color: rgb(132, 0, 194); font-weight: bold; }
+
+.termbox{width: 500px; height: 80px; background-color: #fff; border: 1px solid #999; overflow-y: auto; margin-bottom: 30px; font-size: 13px; color: #444;}
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-thumb {background-color:rgb(132, 0, 194);}
+::-webkit-scrollbar-track {background-color:  #fff}
+input[type=checkbox]{position: absolute; left: -999rem;}
+label{display: inline-block; margin-bottom: 10px;}
+.circle{position: relative; top: 5px; display: inline-block; width: 20px; height: 20px; background-color: #fff; border:1px solid #ddd; border-radius: 100%; cursor:pointer;}
+input[type=checkbox]:checked + .circle::after{position: absolute; top: -12px; content: '\2714'; font-size: 24px;}
+.purple{ color:rgb(132, 0, 194); font-size: 13px ;}
+.lightgray{color: #777; font-size: 13px;}
+button{ display: block; margin: 0 auto; width: 500px; height: 50px; line-height: 50px; color: #fff; background-color: #999;}
+button.agree{ display: block; margin: 0 auto; width: 500px; height: 50px; line-height: 50px; color: #fff; background-color: rgb(132,0,194);}
