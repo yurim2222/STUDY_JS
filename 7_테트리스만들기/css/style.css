@@ -1,9 +1,31 @@
 *{ margin: 0; padding: 0; }
 body{ height: 100%; overflow: hidden; }
 ul{ list-style: none; }
+.game_text{ position: fixed; left: 0; top: 0; display: none; justify-content: center; align-items:center; flex-direction: column; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.377); color: #fff; font-size: 40px; font-weight: bold; }
+.game_text span { animation: move 2s infinite;}
+@keyframes move{
+    from{
+        position: relative;
+        top: 0;
+    }
+    50%{
+        position: relative;
+        top: 8px;
+    }
+    to{
+        position: relative;
+        top: 0;
+    }
+}
+.game_text button{ width:150px; height: 30px; margin-top: 30px; background-color: #000; color: #fff;}
 .score{ text-align: center; font-size: 36px; margin-bottom: 2rem; }
 .playground > ul{ width: 250px; margin: 0 auto; border: 1px solid #ccc;}
 .playground > ul > li{ width: 100%; height: 25px;}
 .playground > ul > li > ul { display: flex ;} /*옆으로 나열시키기*/
 .playground > ul > li > ul > li { width: 25px; height: 25px; outline: 1px solid #eee;}
-.tree{ background: #67c23a; }
+.tree{ background: #b3ff8e; }
+.bar{ background: #94efff; }
+.square{ background: #ff3131; }
+.elLeft{ background: #1e73b8; }
+.elRight{ background: #b27afc; }
+.zee{ background: #ffd900; }
