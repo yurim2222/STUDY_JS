@@ -12,7 +12,7 @@ const GAME_COLS = 10;
 
 //자주 사용할 변수 선언
 let score = 0;
-let duration = 300;
+let duration = 250;
 let downInteval;
 let tempMovingItem; //movingItem을 실행하기 전 담아두는 용도
 
@@ -107,7 +107,7 @@ function checkMatch(){
         if(matched){
             child.remove();
             prependNewLine();
-            score =  +10;
+            score++; 
             scoreDisplay.innerText = score;
         }
     })
