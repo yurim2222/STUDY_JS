@@ -1,0 +1,41 @@
+* { margin: 0; padding: 0; }
+
+li { list-style: none; }
+
+.clock { margin-top: 30px; }
+
+.clock .clockHead ul li { float: left; width: 80px; height: 36px; background-color: #000; border-top-left-radius: 90px; border-top-right-radius: 90px; }
+
+.clock .clockHead ul li::after { content: ''; display: block; width: 10px; height: 8px; margin: 35px auto; background-color: black; }
+
+.clock .clockHead ul li:first-child { -webkit-transform: rotate(-50deg); transform: rotate(-50deg); margin-left: 50%; }
+
+.clock .clockHead ul li:last-child { -webkit-transform: rotate(50deg); transform: rotate(50deg); margin-left: 120px; }
+
+.clock .clockBody { position: relative; width: 200px; height: 200px; border: 10px solid #000; border-radius: 100%; margin-left: calc(50% + 30px); background-size: 100%; }
+
+.clock .clockBody::after { position: relative; content: ''; display: block; margin: 0 auto; margin-top: 95px; width: 10px; height: 10px; border-radius: 10px; background-color: #000; z-index: 100; }
+
+.clock .clockBody .hour { position: absolute; width: 200px; height: 200px; z-index: 10; -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+
+.clock .clockBody .hour::after { position: absolute; left: 96.5px; top: 48px; content: ''; display: block; width: 5px; height: 50px; background-color: red; border-radius: 10px; }
+
+.clock .clockBody .minute { position: absolute; width: 200px; height: 200px; z-index: 9; -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+
+.clock .clockBody .minute::after { position: absolute; left: 97.5px; top: 18px; content: ''; display: block; width: 3px; height: 80px; background-color: #333; border-radius: 10px; }
+
+.clock .clockBody .second { position: absolute; width: 200px; height: 200px; z-index: 8; -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+
+.clock .clockBody .second::after { position: absolute; left: 98px; top: 18px; content: ''; display: block; width: 1.5px; height: 80px; background-color: #333; border-radius: 10px; }
+
+.clock .clockLegs { position: relative; width: 15px; height: 3px; background-color: #000; margin-left: calc(50% + 134px); margin-bottom: 7px; }
+
+.clock .clockLegs::after { position: absolute; top: 3px; left: -62px; content: ''; display: block; width: 140px; height: 7px; background-color: #000; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+
+.desk { width: 800px; margin: 0 auto; }
+
+.desk .deskBody { width: 100%; height: 50px; background-color: #a54d24; }
+
+.desk .deskLegs ul li { float: left; width: 20px; height: 100px; margin-left: 20px; margin-right: 700px; background-color: #2c221e; }
+
+.desk .deskLegs ul li:last-child { margin-right: 0; }
