@@ -12,7 +12,7 @@ const GAME_COLS = 10;
 
 //자주 사용할 변수 선언
 let score = 0;
-let duration = 250;
+let duration = 150;
 let downInteval;
 let tempMovingItem; //movingItem을 실행하기 전 담아두는 용도
 
@@ -221,7 +221,7 @@ document.addEventListener('keydown', e=> {
             break;
         case 32:
             dropBlock();
-            beak
+            break;
         default:
             break;
     }
@@ -230,5 +230,7 @@ document.addEventListener('keydown', e=> {
 replayBtn.addEventListener('click',()=>{
     playground.innerHTML = "";
     gameText.style.display = "none";
+	score = 0;
+	scoreDisplay.innerText = score;
     init();
 })
