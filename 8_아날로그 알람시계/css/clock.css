@@ -10,9 +10,11 @@ li { list-style: none; }
 
 .clock .clockHead ul li:first-child { -webkit-transform: rotate(-50deg); transform: rotate(-50deg); margin-left: 50%; }
 
-.clock .clockHead ul li:last-child { -webkit-transform: rotate(50deg); transform: rotate(50deg); margin-left: 120px; background-color: #9b6f6f; }
+.clock .clockHead ul li:last-child { display: block; -webkit-transform: rotate(50deg); transform: rotate(50deg); margin-left: 120px; background-color: #9b6f6f; cursor: pointer; }
 
-.clock .clockHead ul li:last-child .alretOffBtn { position: absolute; display: block; width: 80px; height: 35px; }
+.clock .clockHead ul li:last-child:active { position: relative; top: 5px; right: 3px; -webkit-transition: 0.5s; transition: 0.5s; }
+
+.clock .clockHead ul li:last-child:active::after { content: ''; display: block; width: 10px; height: 5px; margin: 35px auto; background-color: black; }
 
 .clock .clockBody { position: relative; width: 200px; height: 200px; border: 10px solid #000; border-radius: 100%; margin-left: calc(50% + 30px); background-size: 100%; background-repeat: no-repeat; }
 

@@ -29,14 +29,22 @@ li{
                     margin-left: 50%;
                 }
                 &:last-child{
+                    display: block;
                     transform: rotate(50deg);
                     margin-left: 120px;
                     background-color: rgb(155, 111, 111);
-                    .alretOffBtn{
-                        position: absolute;
-                        display: block;
-                        width: 80px;
-                        height: 35px;
+                    cursor: pointer;
+                    &:active{
+                        position: relative; top: 5px; right: 3px;
+                        transition: 0.5s;
+                        &::after{
+                            content: '';
+                            display: block;
+                            width: 10px;
+                            height: 5px;
+                            margin: 35px auto;
+                            background-color: black;
+                        }
                     }
                 }
             }
