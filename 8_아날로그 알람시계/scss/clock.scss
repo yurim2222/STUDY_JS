@@ -43,14 +43,15 @@ li{
         border-radius: 100%;
         margin-left: calc(50% + 30px);
         background-size: 100%;
+        background-repeat: no-repeat;
         &::after{
             position: relative;
             content: '';
             display: block;
             margin: 0 auto;
-            margin-top: 95px;
-            width: 10px;
-            height: 10px;
+            margin-top: 92px;
+            width: 15px;
+            height: 15px;
             border-radius: 10px;
             background-color: #000;
             z-index: 100;
@@ -62,7 +63,7 @@ li{
             z-index: 10;
             transform: rotate(0deg);
             &::after{
-                position: absolute; left: 96.5px; top: 48px;
+                position: absolute; left: 97px; top: 48px;
                 content: '';
                 display: block;
                 width: 5px;
@@ -78,7 +79,7 @@ li{
             z-index: 9;
             transform: rotate(0deg);
             &::after{
-                position: absolute; left: 97.5px; top: 18px;
+                position: absolute; left: 98px; top: 18px;
                 content: '';
                 display: block;
                 width: 3px;
@@ -93,13 +94,14 @@ li{
             height: 200px;
             z-index: 8;
             transform: rotate(0deg);
+            transition: 0.05s;
             &::after{
-                position: absolute; left: 98px; top: 18px;
+                position: absolute; left: 99px; top: 18px;
                 content: '';
                 display: block;
                 width: 1.5px;
                 height: 80px;
-                background-color: #333;
+                background-color: #555;
                 border-radius: 10px;
             }
         }
