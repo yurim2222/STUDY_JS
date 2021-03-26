@@ -10,7 +10,9 @@ li { list-style: none; }
 
 .clock .clockHead ul li:first-child { -webkit-transform: rotate(-50deg); transform: rotate(-50deg); margin-left: 50%; }
 
-.clock .clockHead ul li:last-child { -webkit-transform: rotate(50deg); transform: rotate(50deg); margin-left: 120px; }
+.clock .clockHead ul li:last-child { -webkit-transform: rotate(50deg); transform: rotate(50deg); margin-left: 120px; background-color: #9b6f6f; }
+
+.clock .clockHead ul li:last-child .alretOffBtn { position: absolute; display: block; width: 80px; height: 35px; }
 
 .clock .clockBody { position: relative; width: 200px; height: 200px; border: 10px solid #000; border-radius: 100%; margin-left: calc(50% + 30px); background-size: 100%; background-repeat: no-repeat; }
 

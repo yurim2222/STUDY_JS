@@ -3,6 +3,9 @@ let minuteHandler = document.querySelector('.minute');
 let secondHandler = document.querySelector('.second');
 let clock = document.querySelector('.clockBody');
 
+let audio = document.querySelector('audio');
+let offBtn = document.querySelector('.alretOffBtn');
+
 
 setDate = () => {
     const now = new Date();
@@ -17,8 +20,15 @@ setDate = () => {
     minuteHandler.style.transform = `rotate(${minuteDegrees}deg)`;
     secondHandler.style.transform = `rotate(${secondDegrees}deg)`;
 
+    if(minute == 00){
+        if(!audio.classList.contains('off')){
+            audio.play();
+        }else{
+            audio.pause();
+        }
     
-
+    }
+    
     if(hour > 18 || hour < 06){
         clock.style.background = 'url(../main_clock_night.png)';
         clock.style.backgroundSize = '100%';
@@ -26,7 +36,13 @@ setDate = () => {
         clock.style.background = 'url(../main_clock_day.png)';
         clock.style.backgroundSize = '100%';
     }
+    
 }
 
 
+offBtn.addEventListener('click',function(e){
+    audio.classList.toggle('off');
+});
+
 setInterval(setDate, 1000);
+
