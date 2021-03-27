@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{margin: 0; padding: 0;}
+            .slide_box{ width: 400px; height: 300px; overflow: hidden;}
+            .slide_content{ float: left; width: 400px; height: 300px;}
+            .slide01{ background-color: aliceblue;}
+            .slide02{ background-color: blue;}
+            .slide03{ background-color: orangered;}
+            .slide04{ background-color: olive;}
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="slide_wrap">
+                <div class="slide_box">
+                    <div class="slide_list clearfix">
+                        <div class="slide_content slide01"></div>
+                        <div class="slide_content slide02"></div>
+                        <div class="slide_content slide03"></div>
+                        <div class="slide_content slide04"></div>
+                    </div>
+                </div>
+                <div class="slide_button">
+                    <button type ="button" class="slide_btn_prev">Prev</button>
+                    <button type ="button" class="slide_btn_next">next</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            const slideList = document.querySelector('.slide_list');
+            const slideContents = document.querySelectorAll('.slide_content');
+            const slideBtnNext = document.querySelector('.slide_btn_next');
+            const slideBtnPrev = document.querySelector('.slide_btn_prev');
+            const slideWidth = 400;
+            const slideSpeed = 300;
+            const slideLength = slideContents.length;
+
+            let curIndex = 0;
+
+            slideList.style.width = slideWidth * slideLength + 'px';
+            slideBtnNext
+
+        </script>
+    </body>
+</html>
