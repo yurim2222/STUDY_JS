@@ -13,6 +13,7 @@
             .slide02{ background-color: blue;}
             .slide03{ background-color: orangered;}
             .slide04{ background-color: olive;}
+            .slide05{ background-color: yellow;}
         </style>
     </head>
     <body>
@@ -24,6 +25,7 @@
                         <div class="slide_content slide02"></div>
                         <div class="slide_content slide03"></div>
                         <div class="slide_content slide04"></div>
+                        <div class="slide_content slide05"></div>
                     </div>
                 </div>
                 <div class="slide_button">
@@ -40,11 +42,26 @@
             const slideWidth = 400;
             const slideSpeed = 300;
             const slideLength = slideContents.length;
+            const startNum = 0;
+
+            
 
             let curIndex = 0;
 
             slideList.style.width = slideWidth * slideLength + 'px';
-            slideBtnNext
+
+            slideBtnNext.addEventListener('click',function(){
+                console.log(curIndex);
+                console.log(slideLength);
+                if(curIndex < slideLength -1){
+                    slideList.style.transform = 'translateX(-'+(slideWidth * (curIndex + 1))+'px)';
+                    slideList.style.transition = slideSpeed + 'ms';
+                }else{
+                    slideList.style.transform = "translateX(0px)";
+                    curIndex = -1;
+                }
+                curSlide = slideContents[++curIndex];
+            });
 
         </script>
     </body>
