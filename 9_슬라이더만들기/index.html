@@ -34,35 +34,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            const slideList = document.querySelector('.slide_list');
-            const slideContents = document.querySelectorAll('.slide_content');
-            const slideBtnNext = document.querySelector('.slide_btn_next');
-            const slideBtnPrev = document.querySelector('.slide_btn_prev');
-            const slideWidth = 400;
-            const slideSpeed = 300;
-            const slideLength = slideContents.length;
-            const startNum = 0;
-
-            
-
-            let curIndex = 0;
-
-            slideList.style.width = slideWidth * slideLength + 'px';
-
-            slideBtnNext.addEventListener('click',function(){
-                console.log(curIndex);
-                console.log(slideLength);
-                if(curIndex < slideLength -1){
-                    slideList.style.transform = 'translateX(-'+(slideWidth * (curIndex + 1))+'px)';
-                    slideList.style.transition = slideSpeed + 'ms';
-                }else{
-                    slideList.style.transform = "translateX(0px)";
-                    curIndex = -1;
-                }
-                curSlide = slideContents[++curIndex];
-            });
-
-        </script>
+        <script src="common.js"></script>
     </body>
 </html>
