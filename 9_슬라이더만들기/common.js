@@ -45,3 +45,23 @@
                 curSlide = slideContents[++curIndex];
                 curSlide.classList.add('slide_active');
             });
+
+            //prev
+            slideBtnPrev.addEventListener('click',function(){
+                console.log(curIndex);
+                console.log(slideLength);
+                if(curIndex >= 0 ){
+                    slideList.style.transform = `translateX(-${slideWidth * curIndex }px)`;                    
+                    slideList.style.transition = slideSpeed + 'ms';
+                }
+                if(curIndex === 0){
+                    setTimeout(function(){
+                        slideList.style.transition = '0ms';
+                        slideList.style.transform = `translateX(-${slideWidth * slideLength}px)`;
+                    },slideSpeed);
+                    curIndex = slideLength;
+                }
+                curSlide.classList.remove('slide_active');
+                curSlide = slideContents[--curIndex];
+                curSlide.classList.add('slide_active');
+            });
