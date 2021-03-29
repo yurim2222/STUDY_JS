@@ -27,9 +27,29 @@
             slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
 
 
+            
+
+            const auto = setInterval(function(){
+                if(curIndex <= slideLength - 1){
+                    slideList.style.transform = `translateX(-${slideWidth * (curIndex + 2)}px)`;                    
+                    slideList.style.transition = slideSpeed + 'ms';
+                }
+                if(curIndex === slideLength - 1){
+                    setTimeout(function(){
+                        slideList.style.transition = '0ms';
+                        slideList.style.transform = `translateX(-${slideWidth}px)`;
+                    },slideSpeed);
+                    curIndex = -1;
+                }
+                curSlide.classList.remove('slide_active');
+                curSlide = slideContents[++curIndex];
+                curSlide.classList.add('slide_active');
+            },4000);
+
             //btn click event
             //next
             slideBtnNext.addEventListener('click',function(){
+                clearInterval(auto);
                 if(curIndex <= slideLength - 1){
                     slideList.style.transform = `translateX(-${slideWidth * (curIndex + 2)}px)`;                    
                     slideList.style.transition = slideSpeed + 'ms';
@@ -48,8 +68,7 @@
 
             //prev
             slideBtnPrev.addEventListener('click',function(){
-                console.log(curIndex);
-                console.log(slideLength);
+                clearInterval(auto);
                 if(curIndex >= 0 ){
                     slideList.style.transform = `translateX(-${slideWidth * curIndex }px)`;                    
                     slideList.style.transition = slideSpeed + 'ms';
@@ -65,3 +84,5 @@
                 curSlide = slideContents[--curIndex];
                 curSlide.classList.add('slide_active');
             });
+
+
