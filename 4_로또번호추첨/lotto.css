@@ -3,4 +3,4 @@
 h1{ text-align: center; border-top: 5px solid rgb(255, 141, 141); margin: 30px auto; padding-top: 10px; letter-spacing: 5px;}
 p{ text-align: center;}
 button{ display: block; color: rgb(255, 92, 92); background-color: transparent; border: none; cursor: pointer; margin: 30px auto; font-size: 15px;}
-.ball{display: inline-block;width: 30px; height: 30px; border-radius: 100%;}
+.ball{display: inline-block;width: 30px; height: 30px; border-radius: 15px;}

@@ -41,15 +41,12 @@ function output(){
 	console.log(lotto)
 	
 	let ball = document.getElementsByClassName('ball');
+	let bgColor = ['red', 'green', 'blue', 'purple', '#555', 'orange'];
 	
-	ball[0].style.backgroundColor='red';
-	ball[1].style.backgroundColor='green';
-	ball[2].style.backgroundColor='blue';
-	ball[3].style.backgroundColor='purple';
-	ball[4].style.backgroundColor='#555';
-	ball[5].style.backgroundColor='orange';
-
-		for(i=0;i<=6;i++){
+	for(let i in bgColor){
+		ball[i].style.backgroundColor = bgColor[i]
+	}
+	for(i=0;i<=6;i++){
 		ball[i].style.color='#fff';
 	}
 
