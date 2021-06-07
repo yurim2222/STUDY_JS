@@ -11,7 +11,11 @@ const add = () => {
     if(text.length === 0){
         alert("리스트 입력");
     }else{
-        createList(text);
+        const item = createList(text);
+        items.appendChild(item);
+        item.scrollIntoView({block:'end'});
+        inputItem.value = '';
+        inputItem.focus();
     }
 };
 
@@ -29,7 +33,6 @@ const createList = (item) => {
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('class','item_delete');
 
-    items.appendChild(itemRow);
     itemRow.appendChild(itemDiv);
     itemDiv.appendChild(itemName);
     itemDiv.appendChild(deleteBtn);
@@ -37,21 +40,18 @@ const createList = (item) => {
 
     deleteBtn.addEventListener("click", () => {
         items.removeChild(itemRow);
-    })
+    });
+    return itemRow;
 
 };
 
 
 addBtn.addEventListener('click', (e) => {
     add();
-    inputItem.value = '';
-    inputItem.focus();
 });
 
 document.addEventListener('keydown', (e) => {
     if(e.keyCode === 13){
         add();
-        inputItem.value = '';
-        inputItem.focus();
     };
 });
