@@ -20,7 +20,7 @@ setDate = () => {
     minuteHandler.style.transform = `rotate(${minuteDegrees}deg)`;
     secondHandler.style.transform = `rotate(${secondDegrees}deg)`;
 
-    if(minute == 00){
+    if(minute == 0){
         if(!audio.classList.contains('off')){
             audio.play();
         }else{
