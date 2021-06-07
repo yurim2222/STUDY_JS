@@ -19,28 +19,22 @@ const add = () => {
     }
 };
 
+
+
 const createList = (item) => {
+    let id = 0;
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class', 'item_row');
-
-    const itemDiv = document.createElement('div');
-    itemDiv.setAttribute('class', 'item');
-
-    const itemName = document.createElement('span');
-    itemName.setAttribute('class','item_name');
-    itemName.innerText = item;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('class','item_delete');
-
-    itemRow.appendChild(itemDiv);
-    itemDiv.appendChild(itemName);
-    itemDiv.appendChild(deleteBtn);
-    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-
-    deleteBtn.addEventListener("click", () => {
-        items.removeChild(itemRow);
-    });
+    itemRow.setAttribute('data-id', id)
+    itemRow.innerHTML = `
+            <div class="item">
+                <span class="item_name">${item}</span>
+                <button class="item_delete">                            
+                    <i class="fas fa-trash-alt" data-id=${id}></i>
+                </button>
+            </div>
+    `;
+    id++;
     return itemRow;
 
 };
@@ -55,3 +49,12 @@ document.addEventListener('keydown', (e) => {
         add();
     };
 });
+
+items.addEventListener('click', (e) => {
+    const id = e.target.dataset.id;
+    console.log(id);
+    if(id){
+       const toBeDeleted = document.querySelector(`.item_row[data-id='${id}']`);
+       items.removeChild(toBeDeleted);
+    }
+})
