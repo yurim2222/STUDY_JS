@@ -1,22 +1,15 @@
 'use strict'
 import PopUp from "./popup.js";
-
-const field = document.querySelector(".game_field");
-const fieldRect = field.getBoundingClientRect();
+import Field from "./field.js";
+import * as sound from "./sound.js";
 
 const CARROT_COUNT = 8;
-const BUG_COUND = 4;
+const BUG_COUNT = 4;
 
 const gamePlayBtn = document.querySelector(".game__button");
 const gameTimer = document.querySelector(".game__timer");
 const gameScore = document.querySelector(".game__score");
 
-const bgSound = new Audio('./sound/bg.mp3');
-const carrotSound = new Audio('./sound/carrot_pull.mp3');
-const bugSound = new Audio('./sound/bug_pull.mp3');
-const alertSound = new Audio('./sound/game_win.mp3');
-
-let item = undefined;
 
 let started = false;
 let score = 0;
@@ -28,6 +21,30 @@ gameFinishBanner.setClickListener(() => {
     startGame();
 });
 
+const gameField = new Field(CARROT_COUNT, BUG_COUNT);
+
+
+const onFieldClick = (e) => {
+    if(!started){
+        return;
+    }
+    if(e === 'carrot'){
+        console.log("뺨뺨")
+        score++;
+        updateScoreBoard();
+        if( score === CARROT_COUNT ){
+            finishGame(true);
+            stopGameTimer();
+        };
+    }else if(e === 'bug'){
+        stopGameTimer();
+        finishGame(false);
+    };
+};
+
+
+gameField.setClickListener(onFieldClick);
+
 gamePlayBtn.addEventListener("click", () => {
     if(started){
         stopGame();
@@ -37,7 +54,6 @@ gamePlayBtn.addEventListener("click", () => {
 });
 
 
-field.addEventListener("click", e => onFieldClick(e));
 
 const startGame = () => {
     started = true;
@@ -45,7 +61,9 @@ const startGame = () => {
     showStopBtn();
     showTimerAndScore();
     startGameTimer();
-    playSound(bgSound);
+    sound.playBG();
+    
+    gameFinishBanner.hide();
 };
 
 const stopGame = () => {
@@ -53,6 +71,8 @@ const stopGame = () => {
     stopGameTimer();
     hideGameBtn();
     gameFinishBanner.showWithText('Replay?🤪');
+    sound.playAlert();
+    sound.stopBG();
 };
 
 const finishGame = (win) => {
@@ -60,8 +80,8 @@ const finishGame = (win) => {
     hideGameBtn();
     console.log(win);
     gameFinishBanner.showWithText( win ? 'YOU WON 😆' : 'YOU LOSE😥');
-    started ? playSound(bgSound) : pauseSound(bgSound);
-    !win && playSound(alertSound);
+    started ? sound.playBG() : sound.stopBG();
+    !win && sound.playAlert();
     score = 0;
 };
 
@@ -85,26 +105,6 @@ const showTimerAndScore = () => {
 
 
 
-const onFieldClick = (e) => {
-    if(!started){
-        return;
-    }
-    if(e.target.className === 'carrot'){
-        playSound(carrotSound);
-        e.target.remove();
-        score++;
-        updateScoreBoard();
-        if( score === CARROT_COUNT ){
-            finishGame(true);
-            stopGameTimer();
-        };
-    }else if(e.target.className === 'bug'){
-        playSound(bugSound);
-        stopGameTimer();
-        finishGame(false);
-    };
-};
-
 const updateScoreBoard = () => {
     gameScore.innerText = CARROT_COUNT - score;
 };
@@ -115,8 +115,6 @@ const startGameTimer = () => {
     updateTimerText(remainingTimer);
     timer = setInterval(() => {
         updateTimerText(--remainingTimer);
-        console.log(remainingTimer);
-        console.log(GAME_DURATION_SEC);
         if(remainingTimer <= 0){
             stopGameTimer();
             finishGame(false);
@@ -138,46 +136,11 @@ const updateTimerText = (time) => {
 
 
 const initGame = () => {
-    field.innerHTML = '';
+    score = 0;
     gameScore.innerText = CARROT_COUNT;
-    addItem('carrot', CARROT_COUNT , './img/carrot.png');
-    addItem('bug', BUG_COUND , './img/bug.png');
+    gameField.init();
 };
 
-
-
-const addItem = (className, count, imgPath) => {
-    const x1 = 0;
-    const y1 = 0;
-    const imgSize = "80";
-    const x2 = fieldRect.width - imgSize;
-    const y2 = fieldRect.height - imgSize;
-
-    for(let i = 0 ; i < count ; i++){
-        item = document.createElement('img');
-        item.setAttribute("class", className);
-        item.setAttribute("src", imgPath);
-        const x = randomNumber(x1, x2);
-        const y = randomNumber(y1, y2);
-        item.style.top = `${y}px`;
-        item.style.left = `${x}px`;
-        field.appendChild(item);
-    };
-};
-
-
-const randomNumber = (min, max) => {
-    return Math.random() * (max - min) + min;
-};
-
-const playSound = (sound) => {
-    sound.currentTime = 0;
-    sound.play();
-};
-
-const pauseSound = (sound) => {
-    sound.pause();
-};
 
 
 
