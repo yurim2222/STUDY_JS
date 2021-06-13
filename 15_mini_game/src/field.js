@@ -14,8 +14,6 @@ export default class Field {
         this.field = document.querySelector(".game_field");
         this.fieldRect = this.field.getBoundingClientRect();
 
-        this.onClick = this.onClick.bind(this);
-
         this.field.addEventListener("click", this.onClick);
     };
 
@@ -49,7 +47,7 @@ export default class Field {
         };
     };
 
-    onClick(e){
+    onClick = e => {
         if(e.target.className === 'carrot'){
             sound.playCarrot();
             e.target.remove();
